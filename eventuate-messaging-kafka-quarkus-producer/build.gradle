@@ -1,0 +1,22 @@
+plugins {
+    id "io.quarkus" version "${quarkusVersion}"
+    id 'org.kordamp.gradle.jandex' version '0.6.0'
+}
+
+dependencies {
+    compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-producer:$eventuateMessagingKafkaVersion"
+
+    compile 'io.quarkus:quarkus-core'
+    compile 'io.quarkus.arc:arc'
+    compile 'io.quarkus:quarkus-arc-deployment'
+
+    compile "io.eventuate.common:eventuate-common-json-mapper:$eventuateCommonVersion"
+
+    testCompile 'io.quarkus:quarkus-junit5'
+
+    implementation enforcedPlatform("io.quarkus:quarkus-bom:${quarkusVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}

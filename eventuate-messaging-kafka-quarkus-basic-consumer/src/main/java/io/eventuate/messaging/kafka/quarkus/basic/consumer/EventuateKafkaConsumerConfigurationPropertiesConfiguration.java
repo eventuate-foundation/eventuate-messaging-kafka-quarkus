@@ -1,0 +1,18 @@
+package io.eventuate.messaging.kafka.quarkus.basic.consumer;
+
+import io.eventuate.messaging.kafka.basic.consumer.EventuateKafkaConsumerConfigurationProperties;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
+
+@ApplicationScoped
+public class EventuateKafkaConsumerConfigurationPropertiesConfiguration {
+  @Produces
+  public EventuateKafkaConsumerConfigurationProperties eventuateKafkaConsumerConfigurationProperties(EventuateKafkaConsumerQuarkusConfigurationProperties eventuateKafkaConsumerQuarkusConfigurationProperties) {
+    EventuateKafkaConsumerConfigurationProperties eventuateKafkaConsumerConfigurationProperties = new EventuateKafkaConsumerConfigurationProperties(eventuateKafkaConsumerQuarkusConfigurationProperties.getPropertiesAsMap());
+    eventuateKafkaConsumerConfigurationProperties.setBackPressure(eventuateKafkaConsumerQuarkusConfigurationProperties.getBackPressure().toBackPressureConfig());
+    eventuateKafkaConsumerConfigurationProperties.setPollTimeout(eventuateKafkaConsumerQuarkusConfigurationProperties.getPollTimeout());
+    return eventuateKafkaConsumerConfigurationProperties;
+  }
+
+}
