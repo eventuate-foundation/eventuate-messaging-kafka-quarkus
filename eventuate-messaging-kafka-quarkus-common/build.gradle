@@ -7,10 +7,4 @@ apply plugin: PrivateModulePlugin
 
 dependencies {
     compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-common:$eventuateMessagingKafkaVersion"
-
-    compile 'io.quarkus:quarkus-core'
-    compile 'io.quarkus.arc:arc'
-    compile 'io.quarkus:quarkus-arc-deployment'
-
-    implementation enforcedPlatform("io.quarkus:quarkus-bom:${quarkusVersion}")
 }

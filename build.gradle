@@ -29,7 +29,11 @@ subprojects {
     }
 
     dependencies {
-        testCompile "junit:junit:4.12"
+        compile 'io.quarkus:quarkus-core'
+        compile 'io.quarkus.arc:arc'
+        compile 'io.quarkus:quarkus-arc-deployment'
+
+        implementation enforcedPlatform("io.quarkus:quarkus-bom:${quarkusVersion}")
     }
 }
 

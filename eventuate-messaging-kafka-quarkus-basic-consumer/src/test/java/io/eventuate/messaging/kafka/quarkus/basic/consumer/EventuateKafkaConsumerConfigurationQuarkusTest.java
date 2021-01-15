@@ -2,12 +2,11 @@ package io.eventuate.messaging.kafka.quarkus.basic.consumer;
 
 import io.eventuate.messaging.kafka.basic.consumer.EventuateKafkaConsumerConfigurationProperties;
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
 public class EventuateKafkaConsumerConfigurationQuarkusTest {
@@ -18,11 +17,11 @@ public class EventuateKafkaConsumerConfigurationQuarkusTest {
   @Test
   public void testPropertyParsing() {
 
-    Assert.assertEquals(2, eventuateKafkaConsumerConfigurationProperties.getProperties().size());
+    assertEquals(2, eventuateKafkaConsumerConfigurationProperties.getProperties().size());
 
-    Assert.assertEquals("10000", eventuateKafkaConsumerConfigurationProperties.getProperties().get("session.timeout.ms"));
+    assertEquals("10000", eventuateKafkaConsumerConfigurationProperties.getProperties().get("session.timeout.ms"));
 
-    Assert.assertEquals("org.apache.kafka.common.serialization.StringSerializer",
+    assertEquals("org.apache.kafka.common.serialization.StringSerializer",
             eventuateKafkaConsumerConfigurationProperties.getProperties().get("key.serializer"));
 
     assertEquals(5, eventuateKafkaConsumerConfigurationProperties.getBackPressure().getLow());
