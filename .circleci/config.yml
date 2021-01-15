@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/eventuate-messaging-kafka-quarkus
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - eventuate-messaging-kafka-quarkus-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
+            - eventuate-messaging-kafka-quarkus-
+      - run: TERM=dumb ./gradlew testClasses aggregateJavaDocs
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: eventuate-messaging-kafka-quarkus-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
+      - run: TERM=dumb ./build-and-test-all.sh
+      - run:
+          name: Publish artifacts
+          command: |
+            TERM=dumb ./deploy-artifacts.sh
+          when: on_success
+      - run:
+          name: Save test results
+          command: |
+            TERM=dumb ./.circleci/save-containers-and-tests.sh
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/container-logs

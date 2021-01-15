@@ -1,0 +1,13 @@
+plugins {
+    id "io.quarkus" version "${quarkusVersion}"
+    id 'org.kordamp.gradle.jandex' version '0.6.0'
+}
+
+apply plugin: PublicModulePlugin
+
+dependencies {
+    compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-consumer:$eventuateMessagingKafkaVersion"
+
+    compile project (":eventuate-messaging-kafka-quarkus-common")
+    compile project (":eventuate-messaging-kafka-quarkus-basic-consumer")
+}

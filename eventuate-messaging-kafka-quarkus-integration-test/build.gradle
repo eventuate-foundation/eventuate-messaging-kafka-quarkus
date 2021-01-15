@@ -1,0 +1,19 @@
+plugins {
+    id "io.quarkus" version "${quarkusVersion}"
+}
+
+apply plugin: PrivateModulePlugin
+
+dependencies {
+    compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-integration-test:$eventuateMessagingKafkaVersion"
+
+    compile project (':eventuate-messaging-kafka-quarkus-common')
+    compile project (':eventuate-messaging-kafka-quarkus-basic-consumer')
+    compile project (':eventuate-messaging-kafka-quarkus-producer')
+
+    testCompile 'io.quarkus:quarkus-junit5'
+}
+
+test {
+    useJUnitPlatform()
+}

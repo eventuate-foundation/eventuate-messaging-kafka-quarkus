@@ -1,0 +1,18 @@
+plugins {
+    id "io.quarkus" version "${quarkusVersion}"
+    id 'org.kordamp.gradle.jandex' version '0.6.0'
+}
+
+apply plugin: PrivateModulePlugin
+
+dependencies {
+    compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-basic-consumer:$eventuateMessagingKafkaVersion"
+
+    compile "io.eventuate.common:eventuate-common-json-mapper:$eventuateCommonVersion"
+
+    testCompile 'io.quarkus:quarkus-junit5'
+}
+
+test {
+    useJUnitPlatform()
+}

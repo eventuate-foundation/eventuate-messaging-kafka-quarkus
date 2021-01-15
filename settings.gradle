@@ -1,0 +1,5 @@
+include 'eventuate-messaging-kafka-quarkus-basic-consumer'
+include 'eventuate-messaging-kafka-quarkus-common'
+include 'eventuate-messaging-kafka-quarkus-consumer'
+include 'eventuate-messaging-kafka-quarkus-producer'
+include 'eventuate-messaging-kafka-quarkus-integration-test'
