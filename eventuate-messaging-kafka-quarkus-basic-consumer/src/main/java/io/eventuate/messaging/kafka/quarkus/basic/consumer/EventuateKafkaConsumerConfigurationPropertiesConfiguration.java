@@ -2,12 +2,11 @@ package io.eventuate.messaging.kafka.quarkus.basic.consumer;
 
 import io.eventuate.messaging.kafka.basic.consumer.EventuateKafkaConsumerConfigurationProperties;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
+import javax.inject.Singleton;
 
-@ApplicationScoped
+@Singleton
 public class EventuateKafkaConsumerConfigurationPropertiesConfiguration {
-  @Produces
+  @Singleton
   public EventuateKafkaConsumerConfigurationProperties eventuateKafkaConsumerConfigurationProperties(EventuateKafkaConsumerQuarkusConfigurationProperties eventuateKafkaConsumerQuarkusConfigurationProperties) {
     EventuateKafkaConsumerConfigurationProperties eventuateKafkaConsumerConfigurationProperties = new EventuateKafkaConsumerConfigurationProperties(eventuateKafkaConsumerQuarkusConfigurationProperties.getPropertiesAsMap());
     eventuateKafkaConsumerConfigurationProperties.setBackPressure(eventuateKafkaConsumerQuarkusConfigurationProperties.getBackPressure().toBackPressureConfig());

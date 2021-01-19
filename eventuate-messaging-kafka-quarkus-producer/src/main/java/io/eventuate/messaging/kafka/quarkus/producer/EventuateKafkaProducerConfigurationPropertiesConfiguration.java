@@ -2,12 +2,11 @@ package io.eventuate.messaging.kafka.quarkus.producer;
 
 import io.eventuate.messaging.kafka.producer.EventuateKafkaProducerConfigurationProperties;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
+import javax.inject.Singleton;
 
-@ApplicationScoped
+@Singleton
 public class EventuateKafkaProducerConfigurationPropertiesConfiguration {
-  @Produces
+  @Singleton
   public EventuateKafkaProducerConfigurationProperties eventuateKafkaProducerConfigurationProperties(EventuateKafkaProducerQuarkusConfigurationProperties eventuateKafkaProducerQuarkusConfigurationProperties) {
     return new EventuateKafkaProducerConfigurationProperties(eventuateKafkaProducerQuarkusConfigurationProperties.getPropertiesAsMap());
   }
