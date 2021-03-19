@@ -2,7 +2,6 @@ plugins {
     id "io.quarkus" version "${quarkusVersion}"
 }
 
-apply plugin: PrivateModulePlugin
 
 dependencies {
     compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-integration-test:$eventuateMessagingKafkaVersion"
