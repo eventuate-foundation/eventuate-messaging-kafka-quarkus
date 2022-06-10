@@ -1,3 +1,5 @@
+rootProject.name="eventuate-messaging-kafka-quarkus"
+
 include 'eventuate-messaging-kafka-quarkus-basic-consumer'
 include 'eventuate-messaging-kafka-quarkus-common'
 include 'eventuate-messaging-kafka-quarkus-consumer'
