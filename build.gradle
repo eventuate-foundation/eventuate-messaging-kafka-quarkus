@@ -49,6 +49,9 @@ gradle.projectsEvaluated {
 }
 
 dockerCompose {
+    environment.put "EVENTUATE_COMMON_VERSION", eventuateCommonImageVersion
+    environment.put "EVENTUATE_MESSAGING_KAFKA_IMAGE_VERSION", eventuateMessagingKafkaImageVersion
+
     projectName = null
 }
 
