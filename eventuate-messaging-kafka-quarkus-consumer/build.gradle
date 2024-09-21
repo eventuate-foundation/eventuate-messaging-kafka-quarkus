@@ -5,8 +5,8 @@ plugins {
 
 
 dependencies {
-    compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-consumer:$eventuateMessagingKafkaVersion"
+    api "io.eventuate.messaging.kafka:eventuate-messaging-kafka-consumer:$eventuateMessagingKafkaVersion"
 
-    compile project (":eventuate-messaging-kafka-quarkus-common")
-    compile project (":eventuate-messaging-kafka-quarkus-basic-consumer")
+    api project (":eventuate-messaging-kafka-quarkus-common")
+    api project (":eventuate-messaging-kafka-quarkus-basic-consumer")
 }

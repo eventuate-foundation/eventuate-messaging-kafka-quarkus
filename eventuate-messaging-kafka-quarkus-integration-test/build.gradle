@@ -4,13 +4,13 @@ plugins {
 
 
 dependencies {
-    compile "io.eventuate.messaging.kafka:eventuate-messaging-kafka-integration-test:$eventuateMessagingKafkaVersion"
+    api "io.eventuate.messaging.kafka:eventuate-messaging-kafka-integration-test:$eventuateMessagingKafkaVersion"
 
-    compile project (':eventuate-messaging-kafka-quarkus-common')
-    compile project (':eventuate-messaging-kafka-quarkus-basic-consumer')
-    compile project (':eventuate-messaging-kafka-quarkus-producer')
+    api project (':eventuate-messaging-kafka-quarkus-common')
+    api project (':eventuate-messaging-kafka-quarkus-basic-consumer')
+    api project (':eventuate-messaging-kafka-quarkus-producer')
 
-    testCompile 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-junit5'
 }
 
 test {
