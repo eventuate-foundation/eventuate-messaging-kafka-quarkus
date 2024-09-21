@@ -35,7 +35,7 @@ subprojects {
         api 'io.quarkus.arc:arc'
         api 'io.quarkus:quarkus-arc-deployment'
 
-        implementation platform("io.quarkus:quarkus-bom:${quarkusVersion}")
+        implementation enforcedPlatform("io.quarkus:quarkus-bom:${quarkusVersion}")
     }
 }
 
